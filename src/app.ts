@@ -6,7 +6,7 @@ import { frontendServerEndpoint, frontendServerPort } from './env';
 export const app = express();
 
 const corsOptions = {
-	origin: `${frontendServerEndpoint}/${frontendServerPort}`,
+	origin: `${frontendServerEndpoint}:${frontendServerPort}`,
 	optionsSuccessStatus: 200,
 };
 
