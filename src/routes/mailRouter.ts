@@ -3,6 +3,6 @@ import { contactMailController } from '../controllers/mailController';
 
 const router = Router();
 
-router.get('/contact', contactMailController);
+router.post('/contact', contactMailController);
 
 export default router;
