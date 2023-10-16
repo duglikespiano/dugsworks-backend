@@ -29,6 +29,12 @@ export const contactMailController = async (req: Request, res: Response) => {
 		let message;
 		if (error instanceof Error) {
 			message = error.message;
+		} else if (error && typeof error === 'object' && 'message' in error) {
+			message = error.message;
+		} else if (typeof error === 'string') {
+			message = error;
+		} else {
+			message = 'UNKNOWN ERROR OCCURRED';
 		}
 		res.status(400).json({ error: message });
 	}
