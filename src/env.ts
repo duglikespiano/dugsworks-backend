@@ -8,6 +8,7 @@ export const mailService = process.env.MAIL_SERVICE;
 export const mailServiceName = process.env.MAIL_SERVICE_NAME;
 export const mailServiceAddress = process.env.MAIL_SERVICE_ADDRESS;
 export const mailServicePassword = process.env.MAIL_SERVICE_PASSWORD;
+export const databaseHost = process.env.DATABASE_HOST;
 export const databaseURL = process.env.DATABASE_URL;
 export const databaseUser = process.env.DATABASE_USER;
 export const databasePassword = process.env.DATABASE_PASSWORD;

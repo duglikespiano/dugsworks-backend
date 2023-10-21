@@ -1,8 +1,8 @@
 import mariadb from 'mariadb';
-import { databaseURL, databaseUser, databasePassword, databaseName } from '../env';
+import { databaseHost, databaseUser, databasePassword, databaseName } from '../env';
 
 export const myDatabase = mariadb.createPool({
-	host: databaseURL,
+	host: databaseHost,
 	user: databaseUser,
 	password: databasePassword,
 	database: databaseName,
