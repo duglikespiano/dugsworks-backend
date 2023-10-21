@@ -1,4 +1,4 @@
-import { myDatabase } from '../database/database';
+import { myDatabase } from '../database/launchDatabase';
 
 const fetchAllMessages = async () => {
 	try {
