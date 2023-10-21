@@ -1,9 +1,9 @@
-import { Router, Request, Response } from 'express';
+import { Router } from 'express';
+import guestbookController from '../controllers/guestbookController';
 
 const router = Router();
 
-router.get('/', (req: Request, res: Response) => {
-	res.json({ message: 'I am ready' });
-});
+router.get('/', guestbookController.fetchAllMessages);
+router.post('/', guestbookController.addMessage);
 
 export default router;
