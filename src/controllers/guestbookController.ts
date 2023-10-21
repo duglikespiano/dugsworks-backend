@@ -49,10 +49,11 @@ const addMessage = async (req: Request, res: Response) => {
 		});
 
 		const queryResult = await guestbookService.addMessage(name, password, message);
+
 		if (queryResult['affectedRows'] > 0) {
 			res.status(201).json({ message: 'MESSAGE ADDED' });
 		} else {
-			res.status(200).json({ message: 'NO MESSAGE ADDED' });
+			throw new Error('NO MESSAGE ADDED');
 		}
 	} catch (error: any) {
 		let message;
@@ -68,6 +69,7 @@ const addMessage = async (req: Request, res: Response) => {
 		} else {
 			message = 'UNKNOWN ERROR OCCURRED';
 		}
+		console.log(error);
 		res.status(400).json({ error: message });
 	}
 };
