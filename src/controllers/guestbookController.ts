@@ -49,9 +49,8 @@ const addMessage = async (req: Request, res: Response) => {
 		});
 
 		const queryResult = await guestbookService.addMessage(name, password, message);
-
 		if (queryResult['affectedRows'] > 0) {
-			res.status(201).json({ message: 'MESSAGE ADDED' });
+			res.status(201).json({ message: 'MESSAGE ADDED', messageId: parseInt(queryResult.insertId.toString()) });
 		} else {
 			throw new Error('NO MESSAGE ADDED');
 		}
@@ -69,9 +68,43 @@ const addMessage = async (req: Request, res: Response) => {
 		} else {
 			message = 'UNKNOWN ERROR OCCURRED';
 		}
-		console.log(error);
+		console.error(error);
 		res.status(400).json({ error: message });
 	}
 };
 
-export default { fetchAllMessages, addMessage };
+const deleteMessage = async (req: Request, res: Response) => {
+	try {
+		const { messageId, password } = req.body;
+		const REQUIRE_KEYS = [messageId, password];
+
+		Object.keys(REQUIRE_KEYS).map((key: string, i: number) => {
+			if (!REQUIRE_KEYS[i]) {
+				throw new Error('INVALID DATA');
+			}
+		});
+
+		const queryResult = await guestbookService.deleteMessage(messageId, password);
+
+		if (queryResult.name === 'SqlError') {
+			throw new Error('SqlError');
+		} else {
+			res.status(200).json({ message: 'MESSAGE DELETED' });
+		}
+	} catch (error: any) {
+		let message;
+		if (error instanceof Error) {
+			message = error.message;
+		} else if (error && typeof error === 'object' && 'message' in error) {
+			message = error.message;
+		} else if (typeof error === 'string') {
+			message = error;
+		} else {
+			message = 'UNKNOWN ERROR OCCURRED';
+		}
+		console.error(error);
+		res.status(400).json({ error: message });
+	}
+};
+
+export default { fetchAllMessages, addMessage, deleteMessage };

@@ -18,4 +18,16 @@ const addMessage = async (name: string, password: string, message: string) => {
 	}
 };
 
-export default { fetchAllMessages, addMessage };
+const deleteMessage = async (messageId: number, password: string) => {
+	const messageInfoInDB = await guestbookDao.checkPassword(messageId);
+	const hashedPasswordInDB = messageInfoInDB[0].password;
+	const result = await bcrypt.compare(password, hashedPasswordInDB);
+
+	if (result === false) {
+		throw new Error('INVALID PASSWORD');
+	} else {
+		return await guestbookDao.deleteMessage(messageId);
+	}
+};
+
+export default { fetchAllMessages, addMessage, deleteMessage };
