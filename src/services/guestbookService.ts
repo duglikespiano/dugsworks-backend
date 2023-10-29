@@ -1,12 +1,13 @@
 import bcrypt from 'bcrypt';
 import guestbookDao from '../models/guestbookDao';
+import { bcryptSalt } from '../env';
 
 const fetchAllMessages = async () => {
 	return await guestbookDao.fetchAllMessages();
 };
 
 const addMessage = async (name: string, password: string, message: string) => {
-	const hashedPassword = await bcrypt.hash(password, 10).then((hashedPassword) => hashedPassword);
+	const hashedPassword = await bcrypt.hash(password, parseInt(bcryptSalt as string)).then((hashedPassword) => hashedPassword);
 	return await guestbookDao.addMessage(name, hashedPassword, message);
 };
 

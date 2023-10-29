@@ -1,12 +1,12 @@
 import express from 'express';
 import cors from 'cors';
 import router from './routes/router';
-import { frontendServerEndpoint, frontendServerPort } from './env';
+import { frontendServerEndpoint } from './env';
 
 export const app = express();
 
 const corsOptions = {
-	origin: `${frontendServerEndpoint}:${frontendServerPort}`,
+	origin: frontendServerEndpoint,
 	optionsSuccessStatus: 200,
 };
 

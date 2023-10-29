@@ -9,7 +9,7 @@ export const backendServerStart = () => {
 		if (!backendServerPort) {
 			throw new Error('PORT INVALID');
 		} else {
-			console.log(`SERVER IS LISTENING ON PORT ${backendServerPort}\nLET'S ROLLOUT!`);
+			console.log(`SERVER IS LISTENING ON PORT ${backendServerPort}!`);
 		}
 	});
 };
