@@ -2,20 +2,12 @@ import bcrypt from 'bcrypt';
 import guestbookDao from '../models/guestbookDao';
 
 const fetchAllMessages = async () => {
-	try {
-		return await guestbookDao.fetchAllMessages();
-	} catch (error) {
-		return error;
-	}
+	return await guestbookDao.fetchAllMessages();
 };
 
 const addMessage = async (name: string, password: string, message: string) => {
-	try {
-		const hashedPassword = await bcrypt.hash(password, 10).then((hashedPassword) => hashedPassword);
-		return await guestbookDao.addMessage(name, hashedPassword, message);
-	} catch (error) {
-		return error;
-	}
+	const hashedPassword = await bcrypt.hash(password, 10).then((hashedPassword) => hashedPassword);
+	return await guestbookDao.addMessage(name, hashedPassword, message);
 };
 
 const deleteMessage = async (messageId: number, password: string) => {

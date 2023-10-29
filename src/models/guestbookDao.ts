@@ -1,11 +1,7 @@
 import { myDatabase } from '../database/launchDatabase';
 
 const fetchAllMessages = async () => {
-	try {
-		return await myDatabase.query(`SELECT * FROM messages`);
-	} catch (error) {
-		return error;
-	}
+	return await myDatabase.query(`SELECT * FROM messages`);
 };
 
 const addMessage = async (name: string, hashedPassword: string, message: string) => {
@@ -17,11 +13,7 @@ const addMessage = async (name: string, hashedPassword: string, message: string)
 };
 
 const checkPassword = async (messageId: number) => {
-	try {
-		return await myDatabase.query(`SELECT * FROM messages WHERE id = (?)`, [messageId]);
-	} catch (error) {
-		return error;
-	}
+	return await myDatabase.query(`SELECT * FROM messages WHERE id = (?)`, [messageId]);
 };
 
 const deleteMessage = async (messageId: number) => {
