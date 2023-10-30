@@ -13,14 +13,6 @@ type messagesType = {
 const fetchAllMessages = async (req: Request, res: Response) => {
 	try {
 		const allMessages = await guestbookService.fetchAllMessages();
-		const KR_TIME_DIFF = 9 * 60 * 60 * 1000;
-
-		if (allMessages.length !== 0) {
-			allMessages.map((item: messagesType) => (item.created_at = new Date(item.created_at.getTime() + KR_TIME_DIFF)));
-		} else {
-			return;
-		}
-
 		res.status(200).json({ data: allMessages });
 	} catch (error) {
 		let message;
