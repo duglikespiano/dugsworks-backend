@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { contactMailService } from '../services/mailService';
+import { contactMailService, guestbookMailService } from '../services/mailService';
 
 export const contactMailController = async (req: Request, res: Response) => {
 	const emailRegex = /^[a-zA-Z0-9+-\_.]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+/;
@@ -37,5 +37,12 @@ export const contactMailController = async (req: Request, res: Response) => {
 			message = 'UNKNOWN ERROR OCCURRED';
 		}
 		res.status(400).json({ error: message });
+	}
+};
+
+export const guestbookMailController = async (name: string) => {
+	const sendMailProcessResult = await guestbookMailService(name);
+	if (sendMailProcessResult.responseCode) {
+		throw new Error(sendMailProcessResult.command);
 	}
 };

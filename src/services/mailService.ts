@@ -26,3 +26,29 @@ export const contactMailService = async (name: string, email: string, message: s
 		.then((data) => data)
 		.catch((error) => error);
 };
+
+export const guestbookMailService = async (name: string) => {
+	const transporter = nodemailer.createTransport({
+		service: mailService,
+		auth: {
+			user: mailServiceAddress,
+			pass: mailServicePassword,
+		},
+	});
+
+	return transporter
+		.sendMail({
+			from: {
+				name: mailServiceName as string,
+				address: mailServiceAddress as string,
+			},
+			to: {
+				name: mailServiceName as string,
+				address: mailServiceAddress as string,
+			},
+			subject: `[Dug's Works] A message on guestbook has been added`,
+			text: `Guest name ${name} has added a message on guestbook\nPlease check it`,
+		})
+		.then((data) => data)
+		.catch((error) => error);
+};

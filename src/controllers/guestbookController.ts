@@ -1,4 +1,5 @@
 import { Request, Response } from 'express';
+import { guestbookMailController } from './mailController';
 import guestbookService from '../services/guestbookService';
 
 type messagesType = {
@@ -43,6 +44,7 @@ const addMessage = async (req: Request, res: Response) => {
 		const queryResult = await guestbookService.addMessage(name, password, message);
 		if (queryResult['affectedRows'] > 0) {
 			res.status(201).json({ message: 'MESSAGE ADDED', messageId: parseInt(queryResult.insertId.toString()) });
+			await guestbookMailController(name);
 		} else {
 			throw new Error('NO MESSAGE ADDED');
 		}
