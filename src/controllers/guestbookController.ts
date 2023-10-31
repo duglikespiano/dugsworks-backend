@@ -2,15 +2,6 @@ import { Request, Response } from 'express';
 import { guestbookMailController } from './mailController';
 import guestbookService from '../services/guestbookService';
 
-type messagesType = {
-	id: number;
-	name: string;
-	password: string;
-	message: string;
-	created_at: Date;
-	updated_at: null | Date;
-};
-
 const fetchAllMessages = async (req: Request, res: Response) => {
 	try {
 		const allMessages = await guestbookService.fetchAllMessages();
