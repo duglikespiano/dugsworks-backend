@@ -1,0 +1,1 @@
+{"version":3,"file":"pingRouter.js","sourceRoot":"","sources":["../../src/routes/pingRouter.ts"],"names":[],"mappings":";;AAAA,qCAAoD;AAEpD,MAAM,MAAM,GAAG,IAAA,gBAAM,GAAE,CAAC;AAExB,MAAM,CAAC,GAAG,CAAC,GAAG,EAAE,CAAC,GAAY,EAAE,GAAa,EAAE,EAAE;IAC/C,GAAG,CAAC,IAAI,CAAC,EAAE,OAAO,EAAE,MAAM,EAAE,CAAC,CAAC;AAC/B,CAAC,CAAC,CAAC;AAEH,kBAAe,MAAM,CAAC"}
