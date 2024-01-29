@@ -1,5 +1,5 @@
 import nodemailer from 'nodemailer';
-import { mailService, mailServiceName, mailServiceAddress, mailServicePassword } from '../env';
+import { mailService, mailServiceName, mailServiceAddress, mailServicePassword } from '../app/env';
 
 export const contactMailService = async (name: string, email: string, message: string) => {
 	const transporter = nodemailer.createTransport({

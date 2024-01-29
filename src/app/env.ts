@@ -1,7 +1,7 @@
 import dotenv from 'dotenv';
 dotenv.config();
 
-export const backendServerPort = process.env.BACKEND_SERVER_PORT;
+export const port = process.env.PORT as unknown as number;
 export const frontendServerEndpoint = process.env.FRONTEND_SERVER_ENDPOINT;
 export const mailService = process.env.MAIL_SERVICE;
 export const mailServiceName = process.env.MAIL_SERVICE_NAME;

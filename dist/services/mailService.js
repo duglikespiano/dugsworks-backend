@@ -14,7 +14,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.guestbookMailService = exports.contactMailService = void 0;
 const nodemailer_1 = __importDefault(require("nodemailer"));
-const env_1 = require("../env");
+const env_1 = require("../app/env");
 const contactMailService = (name, email, message) => __awaiter(void 0, void 0, void 0, function* () {
     const transporter = nodemailer_1.default.createTransport({
         service: env_1.mailService,

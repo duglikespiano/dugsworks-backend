@@ -1,6 +1,6 @@
 import bcrypt from 'bcrypt';
 import guestbookDao from '../models/guestbookDao';
-import { bcryptSalt } from '../env';
+import { bcryptSalt } from '../app/env';
 
 const fetchAllMessages = async () => {
 	return await guestbookDao.fetchAllMessages();

@@ -3,10 +3,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.bcryptSalt = exports.databaseName = exports.databasePassword = exports.databaseUser = exports.databaseURL = exports.databasePort = exports.databaseHost = exports.mailServicePassword = exports.mailServiceAddress = exports.mailServiceName = exports.mailService = exports.frontendServerEndpoint = exports.backendServerPort = void 0;
+exports.bcryptSalt = exports.databaseName = exports.databasePassword = exports.databaseUser = exports.databaseURL = exports.databasePort = exports.databaseHost = exports.mailServicePassword = exports.mailServiceAddress = exports.mailServiceName = exports.mailService = exports.frontendServerEndpoint = exports.port = void 0;
 const dotenv_1 = __importDefault(require("dotenv"));
 dotenv_1.default.config();
-exports.backendServerPort = process.env.BACKEND_SERVER_PORT;
+exports.port = process.env.PORT;
 exports.frontendServerEndpoint = process.env.FRONTEND_SERVER_ENDPOINT;
 exports.mailService = process.env.MAIL_SERVICE;
 exports.mailServiceName = process.env.MAIL_SERVICE_NAME;

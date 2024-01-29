@@ -5,7 +5,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.myDatabase = void 0;
 const mariadb_1 = __importDefault(require("mariadb"));
-const env_1 = require("../env");
+const env_1 = require("../app/env");
 exports.myDatabase = mariadb_1.default.createPool({
     host: env_1.databaseHost,
     port: parseInt(env_1.databasePort),

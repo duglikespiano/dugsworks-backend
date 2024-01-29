@@ -14,7 +14,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const bcrypt_1 = __importDefault(require("bcrypt"));
 const guestbookDao_1 = __importDefault(require("../models/guestbookDao"));
-const env_1 = require("../env");
+const env_1 = require("../app/env");
 const fetchAllMessages = () => __awaiter(void 0, void 0, void 0, function* () {
     return yield guestbookDao_1.default.fetchAllMessages();
 });
