@@ -52,3 +52,4 @@
 
 - Testcode を作成する事
 - 訪問者の Log 収集関連 code 作成する事
+- database と markdown の中にどちらが本プロジェクトに適合か確認する事

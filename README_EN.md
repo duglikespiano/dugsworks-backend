@@ -52,3 +52,4 @@
 
 - Writting testcodes
 - Writting codes to collect visitor's information
+- Checking which one would be proper for this project between database and markdown
