@@ -53,3 +53,4 @@
 - Testcode 작성 할 것
 - 방문자의 Log 수집 관련 code 작성 할 것
 - database, markdown 중 어느 것이 본 프로젝트에 적합할 지 확인 할 것
+- Astro로의 전환을 고려할 것
